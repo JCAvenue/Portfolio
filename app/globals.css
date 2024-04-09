@@ -2,3 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+.slide-in {
+  animation: slideFromLeft 0.4s ease forwards;
+}
+
+@keyframes slideFromLeft {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
