@@ -36,12 +36,26 @@ const NavigationBar = () => {
           <div className="hidden md:block">
             <ul className="flex flex-row gap-3 text-sm">
               {items.map((item) => {
-                return <li key={item.name}>{item.name}</li>;
+                return (
+                  <li
+                    key={item.name}
+                    className={`cursor-pointer active:text-gray-600 hover:text-gray-500 ${
+                      isLinkActive(item.link) ? 'font-bold' : ''
+                    }`}
+                  >
+                    <Link
+                      href={item.link}
+                      className="flex flex-row items-center gap-3"
+                    >
+                      {item.name}
+                    </Link>
+                  </li>
+                );
               })}
             </ul>
           </div>
           <div
-            className={`${toggle ? 'hidden' : ''} md:hidden p-1 border flex items-center`}
+            className={`${toggle ? 'hidden' : ''} md:hidden flex items-center`}
             onClick={() => setToggle(!toggle)}
           >
             <MenuOutlined />
@@ -49,8 +63,8 @@ const NavigationBar = () => {
         </div>
       </nav>
       <div
-        className={`w-[300px] border-r-[1px] h-lvh bg-white md:hidden ${
-          toggle ? 'absolute slide-in' : 'hidden'
+        className={`w-[300px] border-r-[1px] h-lvh z-40 fixed bg-white md:hidden ${
+          toggle ? 'slide-in' : 'hidden'
         } top-0`}
       >
         <div
@@ -76,10 +90,8 @@ const NavigationBar = () => {
             return (
               <li
                 key={item.name}
-                className={`px-4 py-3 cursor-pointer active:bg-blue-300 gap-3 ${
-                  isLinkActive(item.link)
-                    ? 'bg-gradient-to-b from-cyan-100 to-blue-100'
-                    : ''
+                className={`px-4 py-3 cursor-pointer active:bg-blue-400 gap-3 ${
+                  isLinkActive(item.link) ? 'bg-blue-300' : ''
                 } hover:bg-blue-200`}
               >
                 <Link

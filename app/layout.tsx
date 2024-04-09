@@ -19,8 +19,8 @@ export const metadata: Metadata = {
 };
 
 const bodyFont = Inter({
-    subsets: ['latin'],
-    weight: ['100', '200', '300', '400', '500', '600', '700'],
+  subsets: ['latin'],
+  weight: ['100', '200', '300', '400', '500', '600', '700'],
 });
 
 export default function RootLayout({
@@ -30,10 +30,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
+        />
+      </head>
       <body style={bodyFont.style}>
         <AntdRegistry>
           <NavigationBar />
-          {children}
+          <main>{children}</main>
         </AntdRegistry>
       </body>
     </html>
