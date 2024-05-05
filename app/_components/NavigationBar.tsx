@@ -19,7 +19,7 @@ const NavigationBar = () => {
 
   return (
     <>
-      <nav className="border">
+      <nav className="border-b-[1px]">
         <div className="container h-14 mx-auto flex items-center px-4">
           <div className="flex flex-row gap-3 flex-auto">
             <Image
@@ -30,7 +30,7 @@ const NavigationBar = () => {
               priority
             />
             <div className="font-bold text-md flex items-center gap-3">
-              JCAVENUE{' '}
+              JCAVENUE{' '} <span className='font-light text-sm'>Portfolio version 3.0.0</span>
             </div>
           </div>
           <div className="hidden md:block">
